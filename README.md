@@ -9,5 +9,5 @@ allprojects {
 }
 在app的build.gradle中添加
 dependencies {
-	        implementation 'com.github.yanhaozeng:Android_frame:Tag'
+	        implementation 'com.github.yanhaozeng:Android_frame:v1.0'
 }
