@@ -1,5 +1,5 @@
 # Android_frame
-yhzAndroid基本框架和工具库
+#yhzAndroid基本框架和工具库
 在项目根build.gradle中添加
 allprojects {
 		repositories {
