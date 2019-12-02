@@ -16,4 +16,3 @@ dependencies {
 	implementation 'com.github.yanhaozeng:Android_frame:v1.0'
 }
 ```
-————————————————
