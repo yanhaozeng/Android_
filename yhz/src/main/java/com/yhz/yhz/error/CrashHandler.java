@@ -7,6 +7,11 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 
+import com.yanzhenjie.kalle.Kalle;
+import com.yanzhenjie.kalle.simple.SimpleCallback;
+import com.yanzhenjie.kalle.simple.SimpleResponse;
+import com.yhz.yhz.util.VerifyUtils;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -59,6 +64,13 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
+    public void init(Context context, String url) {
+        mContext = context;
+        UpLoadToServiceUrl = url;
+        mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+        Thread.setDefaultUncaughtExceptionHandler(this);
+    }
+
     /**
      * uncaughtException 回调函数
      */
@@ -71,12 +83,12 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         String exceptionInfoStr = getExceptionInfoStr();
 
         //上传服务器
-        uploadToServer(exceptionInfoStr,logTxt);
+        uploadToServer(exceptionInfoStr, logTxt);
 
         //如果系统提供的默认的异常处理器，让系统去处理
         if (null != mDefaultHandler) {
             mDefaultHandler.uncaughtException(thread, ex);
-        }else {
+        } else {
             Process.killProcess(Process.myPid());
         }
     }
@@ -84,17 +96,20 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     /**
      * 上传信息到服务器
+     *
      * @param exceptionInfoStr
      */
-    private void uploadToServer(String exceptionInfoStr,File logTxt) {
-//        Kalle.post(UpLoadToServiceUrl)
-//                .file("file",logTxt)
-//                .perform(new SimpleCallback<String>() {
-//                    @Override
-//                    public void onResponse(SimpleResponse<String, String> response) {
-//
-//                    }
-//                });
+    private void uploadToServer(String exceptionInfoStr, File logTxt) {
+        if (!VerifyUtils.isEmpty(UpLoadToServiceUrl)) {
+            Kalle.post(UpLoadToServiceUrl)
+                    .file("file", logTxt)
+                    .perform(new SimpleCallback<String>() {
+                        @Override
+                        public void onResponse(SimpleResponse<String, String> response) {
+
+                        }
+                    });
+        }
     }
 
     /**
@@ -107,7 +122,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
         File file = new File(LOG_DIR);
         if (!file.exists()) {
-            if(!file.mkdirs()){
+            if (!file.mkdirs()) {
                 return;
             }
         }
@@ -158,6 +173,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             e.printStackTrace();
         }
         return "异常信息文件文件未找到";
+    }
+
+    //返回异常文件路径
+    public String getLOG_DIR(){
+        return LOG_DIR;
     }
 
 }
