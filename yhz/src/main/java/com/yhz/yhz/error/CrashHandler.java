@@ -29,7 +29,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static String UpLoadToServiceUrl = "";
 
     //日志文件夹
-    private String LOG_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/bubuWms/log/";
+    private String LOG_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/android/log/";
     private File logTxt;
 
     /**
