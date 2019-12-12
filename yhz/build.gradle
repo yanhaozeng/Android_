@@ -37,4 +37,6 @@ dependencies {
     implementation 'com.yanzhenjie:kalle:0.1.7'
     //权限框架(AndPermission)
     implementation 'com.yanzhenjie:permission:2.0.3'
+    //解析JSON（fastjson）
+    implementation 'com.alibaba:fastjson:1.1.71.android'
 }
