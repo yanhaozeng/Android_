@@ -28,6 +28,9 @@ import com.yhz.android_frame.BroadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * @description: BaseActivity (activity基本类)
  * @author: Y.hz
@@ -36,13 +39,13 @@ import com.yhz.yhz.util.ConstantUtil;
 public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener{
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     private boolean isOpenKeyboardEvent = false;
+    private Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 执行初始化方法
         isOpenKeyboardEvent = initIsOpenKeyboardEvent();
-
         // 沉浸效果
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // 透明状态栏
@@ -57,6 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
+        unbinder = ButterKnife.bind(this);
         //设置布局
         setContentView(initLayout());
         // 初始化netEvent
@@ -96,6 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         netEvent = null;
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
+        unbinder.unbind();
         super.onDestroy();
     }
 

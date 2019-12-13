@@ -34,4 +34,5 @@ CrashHandler.getInstance().init(getApplicationContext(),"你要将异常文件�
 CrashHandler.getLOG_DIR();
 ```
 #### 如果添加了异常文件上传Url请使用File进行接收,参数名"file"，上传成功后会自动删除异常文件。
+### 新增GuideView(通用引导控件) 使用方式参考源码中GuideActivity
 
