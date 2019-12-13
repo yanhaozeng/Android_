@@ -57,23 +57,28 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
-
+        //设置布局
+        setContentView(initLayout());
         // 初始化netEvent
         netEvent = this;
         initView();
         initHttp();
         initData();
+        initMethod();
     }
 
     // 抽象 - 初始化方法，可以对数据进行初始化
     protected abstract boolean initIsOpenKeyboardEvent();
-
+    // 抽象 - 初始化布局
+    protected abstract int initLayout();
     // 抽象 - 初始化控件
     protected abstract void initView();
     // 抽象 - 初始化网络请求
     protected abstract void initHttp();
     // 抽象 - 初始化数据
     protected abstract void initData();
+    // 抽象 - 初始化方法
+    protected abstract void initMethod();
 
     @Override
     protected void onResume() {
