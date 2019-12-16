@@ -1,6 +1,5 @@
 package com.yhz.android_frame.activity;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -24,10 +23,10 @@ public class MainActivity extends BaseActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 判断权限
-        if (!hasPermission(Manifest.permission.READ_PHONE_STATE)) {
-            requestPermission(ConstantUtil.PERMISSIONS_REQUEST_READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE);
-        }
+        // 判断权限（Android 10以上没有手机IEMI权限 获取不到了）
+//        if (!hasPermission(Manifest.permission.READ_PHONE_STATE)) {
+//            requestPermission(ConstantUtil.PERMISSIONS_REQUEST_READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE);
+//        }
 
         //欢迎页
         Timer timer = new Timer();
