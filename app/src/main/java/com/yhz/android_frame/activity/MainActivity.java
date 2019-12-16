@@ -72,6 +72,11 @@ public class MainActivity extends BaseActivity{
     }
 
     @Override
+    protected int initLayout() {
+        return 0;
+    }
+
+    @Override
     protected void initView() {
 
     }
@@ -83,6 +88,11 @@ public class MainActivity extends BaseActivity{
 
     @Override
     protected void initData() {
+
+    }
+
+    @Override
+    protected void initMethod() {
 
     }
 }
