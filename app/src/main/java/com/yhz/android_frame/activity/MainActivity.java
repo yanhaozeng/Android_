@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * @description: MainActivity (演示activity类)
  * @author: Y.hz
@@ -25,6 +28,16 @@ public class MainActivity extends BaseActivity{
         if (!hasPermission(Manifest.permission.READ_PHONE_STATE)) {
             requestPermission(ConstantUtil.PERMISSIONS_REQUEST_READ_PHONE_STATE, Manifest.permission.READ_PHONE_STATE);
         }
+
+        //欢迎页
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+
+            }
+        };
+        timer.schedule(timerTask,1000*3);
 
     }
     // 处理请求权限结果
