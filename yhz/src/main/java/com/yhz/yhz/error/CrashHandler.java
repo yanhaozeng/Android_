@@ -11,8 +11,10 @@ import android.widget.Toast;
 import com.yanzhenjie.kalle.Kalle;
 import com.yanzhenjie.kalle.KalleConfig;
 import com.yanzhenjie.kalle.connect.BroadcastNetwork;
+import com.yanzhenjie.kalle.connect.http.LoggerInterceptor;
 import com.yanzhenjie.kalle.simple.SimpleCallback;
 import com.yanzhenjie.kalle.simple.SimpleResponse;
+import com.yhz.yhz.json.FastJsonConverter;
 import com.yhz.yhz.json.FastJsonObject;
 import com.yhz.yhz.util.VerifyUtils;
 
@@ -116,6 +118,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         if (!VerifyUtils.isEmpty(UpLoadToServiceUrl)) {
             KalleConfig config = KalleConfig.newBuilder()
                     .network(new BroadcastNetwork(mContext))
+                    .addInterceptor(new LoggerInterceptor("Yhz",true))
+                    .converter(new FastJsonConverter())
                     .connectionTimeout(30,TimeUnit.SECONDS)
                     .readTimeout(30,TimeUnit.SECONDS)
                     .build();
@@ -127,10 +131,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                         @Override
                         public void onResponse(SimpleResponse<FastJsonObject, String> response) {
                             if (response.isSucceed()){
-                                Toast.makeText(mContext, response.succeed().getMag(), Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(mContext,response.succeed().getMsg(), Toast.LENGTH_SHORT).show();
                             }else {
-                                Toast.makeText(mContext, response.succeed().getMag(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext,response.succeed().getMsg(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

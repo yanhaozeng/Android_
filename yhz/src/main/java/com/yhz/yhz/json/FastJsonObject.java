@@ -7,8 +7,8 @@ package com.yhz.yhz.json;
  */
 public class FastJsonObject {
     private int code;
-    private String mag;
-    private Object obj ;
+    private String msg;
+    private Object obj;
 
     public int getCode() {
         return code;
@@ -18,12 +18,12 @@ public class FastJsonObject {
         this.code = code;
     }
 
-    public String getMag() {
-        return mag;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMag(String mag) {
-        this.mag = mag;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getObj() {
@@ -38,7 +38,7 @@ public class FastJsonObject {
     public String toString() {
         return "FastJsonObject{" +
                 "code=" + code +
-                ", mag='" + mag + '\'' +
+                ", msg='" + msg + '\'' +
                 ", obj=" + obj +
                 '}';
     }
