@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.yhz.android_frame.BroadcastReceiver.NetBroadcastReceiver;
+import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 

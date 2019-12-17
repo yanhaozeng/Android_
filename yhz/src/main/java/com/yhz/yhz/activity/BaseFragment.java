@@ -5,7 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.yhz.android_frame.BroadcastReceiver.NetBroadcastReceiver;
+import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
+
 
 /**
  * @description: BaseFragment ()

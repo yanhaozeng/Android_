@@ -2,10 +2,11 @@ package com.yhz.android_frame.activity;
 
 import com.yhz.android_frame.R;
 import com.yhz.yhz.activity.BaseActivity;
-import com.yhz.yhz.view.GuideView;
 import com.yhz.yhz.interfaces.GuideCallBack;
+import com.yhz.yhz.view.GuideView;
 
 import butterknife.BindView;
+
 
 /**
  * @description: GuideActivity (引导页使用演示)
@@ -36,7 +37,7 @@ public class GuideActivity extends BaseActivity implements GuideCallBack {
 
     @Override
     protected void initView() {
-        guideView.setData(mPageImages,mGuidePoint,this);
+        guideView.setData(mPageImages, mGuidePoint, this);
     }
 
     @Override
@@ -53,16 +54,19 @@ public class GuideActivity extends BaseActivity implements GuideCallBack {
     protected void initMethod() {
 
     }
+
     //当前滑动第几个view
     @Override
     public void callSlidingPosition(int position) {
 
     }
+
     //滑动到最后一个view
     @Override
     public void callSlidingLast() {
 
     }
+
     //最后一个view中 跳过的点击事件
     @Override
     public void onClickLastListener() {
