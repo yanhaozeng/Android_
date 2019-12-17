@@ -71,6 +71,14 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
 
+    public void init(Context context, String url, String logName) {
+        mContext = context;
+        UpLoadToServiceUrl = url;
+        LOG_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+logName+"/log/";
+        mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+        Thread.setDefaultUncaughtExceptionHandler(this);
+    }
+
     /**
      * uncaughtException 回调函数
      */

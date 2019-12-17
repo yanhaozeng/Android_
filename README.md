@@ -25,8 +25,8 @@ SpUtils.init("YourName");
 ### 使用项目中CrashHandler时请在自己的Application中初始化：
 ```
 CrashHandler.getInstance().init(getApplicationContext());
-或者
 CrashHandler.getInstance().init(getApplicationContext(),"你要将异常文件提交到的Url");
+CrashHandler.getInstance().init(getApplicationContext(),"你要将异常文件提交到的Url","你的异常文件名称");
 ```
 #### 如果只添加了Context 没有添加异常文件上传路径，不会在出现异常时上传异常信息。请开发者自行决定异常文件的使用。
 #### 请使用 CrashHandler.getLOG_DIR()方法获取异常文件路径，本路径下是项目所有异常文件路径，开发者使用全局异常捕获器时，请及时清理。
