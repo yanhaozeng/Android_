@@ -6,10 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
+import android.widget.Toast;
 
 import com.yanzhenjie.kalle.Kalle;
+import com.yanzhenjie.kalle.KalleConfig;
+import com.yanzhenjie.kalle.connect.BroadcastNetwork;
 import com.yanzhenjie.kalle.simple.SimpleCallback;
 import com.yanzhenjie.kalle.simple.SimpleResponse;
+import com.yhz.yhz.json.FastJsonObject;
 import com.yhz.yhz.util.VerifyUtils;
 
 import java.io.BufferedReader;
@@ -19,6 +23,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @description: CrashHandler (全局异常捕获)
@@ -109,12 +114,24 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
      */
     private void uploadToServer(String exceptionInfoStr, File logTxt) {
         if (!VerifyUtils.isEmpty(UpLoadToServiceUrl)) {
+            KalleConfig config = KalleConfig.newBuilder()
+                    .network(new BroadcastNetwork(mContext))
+                    .connectionTimeout(30,TimeUnit.SECONDS)
+                    .readTimeout(30,TimeUnit.SECONDS)
+                    .build();
+            Kalle.setConfig(config);
+
             Kalle.post(UpLoadToServiceUrl)
                     .file("file", logTxt)
-                    .perform(new SimpleCallback<String>() {
+                    .perform(new SimpleCallback<FastJsonObject>() {
                         @Override
-                        public void onResponse(SimpleResponse<String, String> response) {
+                        public void onResponse(SimpleResponse<FastJsonObject, String> response) {
+                            if (response.isSucceed()){
+                                Toast.makeText(mContext, response.succeed().getMag(), Toast.LENGTH_SHORT).show();
 
+                            }else {
+                                Toast.makeText(mContext, response.succeed().getMag(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
         }
