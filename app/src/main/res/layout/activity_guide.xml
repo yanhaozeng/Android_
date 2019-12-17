@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.GuideActivity">
 
-    <com.yhz.yhz.View.GuideView
+    <com.yhz.yhz.view.GuideView
         android:id="@+id/guide_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

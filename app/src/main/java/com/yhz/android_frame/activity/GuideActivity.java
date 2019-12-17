@@ -1,7 +1,8 @@
 package com.yhz.android_frame.activity;
 
 import com.yhz.android_frame.R;
-import com.yhz.yhz.View.GuideView;
+import com.yhz.yhz.activity.BaseActivity;
+import com.yhz.yhz.view.GuideView;
 import com.yhz.yhz.interfaces.GuideCallBack;
 
 import butterknife.BindView;

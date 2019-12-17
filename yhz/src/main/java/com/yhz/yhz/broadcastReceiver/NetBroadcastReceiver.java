@@ -1,13 +1,13 @@
-package com.yhz.android_frame.BroadcastReceiver;
+package com.yhz.yhz.broadcastReceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 
-import com.yhz.android_frame.activity.BaseActivity;
-import com.yhz.android_frame.activity.BaseFragment;
-import com.yhz.android_frame.activity.BaseFragmentActivity;
+import com.yhz.yhz.activity.BaseActivity;
+import com.yhz.yhz.activity.BaseFragment;
+import com.yhz.yhz.activity.BaseFragmentActivity;
 import com.yhz.yhz.util.NetworkUtil;
 
 /**

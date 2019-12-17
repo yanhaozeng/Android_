@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.yhz.yhz.activity.BaseActivity;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 
@@ -19,7 +20,7 @@ import java.util.TimerTask;
  * @author: Y.hz
  * @time: 2019/12/02 16:30
  */
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

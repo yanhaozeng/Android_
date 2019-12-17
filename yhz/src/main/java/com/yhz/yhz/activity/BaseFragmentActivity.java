@@ -1,4 +1,4 @@
-package com.yhz.android_frame.activity;
+package com.yhz.yhz.activity;
 
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -15,7 +15,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import com.yhz.android_frame.BroadcastReceiver.NetBroadcastReceiver;
+import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 

@@ -1,4 +1,4 @@
-package com.yhz.android_frame.activity;
+package com.yhz.yhz.activity;
 
 import android.content.Context;
 import android.content.pm.PackageManager;

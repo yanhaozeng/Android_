@@ -1,4 +1,4 @@
-package com.yhz.yhz.View;
+package com.yhz.yhz.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
