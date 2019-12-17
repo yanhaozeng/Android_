@@ -12,7 +12,7 @@ allprojects {
 ### 在app的build.gradle中添加：
 ```
 dependencies {
-	implementation 'com.github.yanhaozeng:Android_frame:Tag'
+	implementation 'com.github.yanhaozeng:Android_frame:1.0.0'
 }
 ```
 ## 特别工具类使用注意
