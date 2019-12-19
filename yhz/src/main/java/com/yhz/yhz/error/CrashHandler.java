@@ -133,7 +133,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                             if (response.isSucceed()){
                                 Toast.makeText(mContext,response.succeed().getMsg(), Toast.LENGTH_SHORT).show();
                             }else {
-                                Toast.makeText(mContext,response.succeed().getMsg(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext,response.failed(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

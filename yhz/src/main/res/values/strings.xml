@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">yhz</string>
+    <string name="title">公共头部</string>
     <string name="skip">跳过</string>
 
     <dimen name="dp_0">0dp</dimen>
@@ -36,5 +37,10 @@
     <dimen name="sp_18">18sp</dimen>
     <dimen name="sp_19">19sp</dimen>
     <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_21">21sp</dimen>
+    <dimen name="sp_22">22sp</dimen>
+    <dimen name="sp_23">23sp</dimen>
+    <dimen name="sp_24">24sp</dimen>
+    <dimen name="sp_25">25sp</dimen>
 
 </resources>
