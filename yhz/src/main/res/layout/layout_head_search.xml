@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/headsearch_img_left"
+        android:layout_width="@dimen/dp_50"
+        android:padding="@dimen/dp_10"
+        android:layout_height="match_parent"
+        android:src="@drawable/abc_vector_test" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/headsearch_img_left"
+        android:layout_toLeftOf="@+id/headsearch_img_right"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/headsearch_ll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/dp_10"
+            android:background="@drawable/head_search_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/headsearch_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/dp_5"
+                android:src="@color/white"/>
+
+            <EditText
+                android:id="@+id/headsearch_ed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/head_search"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/headsearch_img_right"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/dp_10"
+        android:layout_alignParentRight="true"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
