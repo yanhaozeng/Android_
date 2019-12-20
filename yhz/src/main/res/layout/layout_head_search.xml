@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headsearch_rl"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp_50"
     android:background="@color/black">
@@ -15,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toRightOf="@+id/headsearch_img_left"
-        android:layout_toLeftOf="@+id/headsearch_img_right"
+        android:layout_toLeftOf="@+id/headsearch_btn_right"
         android:gravity="center_horizontal">
 
         <LinearLayout
@@ -47,13 +48,14 @@
 
     </RelativeLayout>
 
-
-    <ImageView
-        android:id="@+id/headsearch_img_right"
+    <Button
+        android:id="@+id/headsearch_btn_right"
         android:layout_width="@dimen/dp_50"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
         android:layout_alignParentRight="true"
-        android:visibility="invisible"/>
+        android:text="@string/head_search_btn"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"/>
 
 </RelativeLayout>

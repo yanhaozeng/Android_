@@ -3,6 +3,7 @@
     <string name="title">公共头部</string>
     <string name="skip">跳过</string>
     <string name="head_search">请输入搜索内容</string>
+    <string name="head_search_btn">搜索</string>
 
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_1">1dp</dimen>
