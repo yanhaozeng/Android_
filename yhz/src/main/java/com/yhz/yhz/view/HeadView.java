@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 
 import com.yhz.yhz.R;
 import com.yhz.yhz.interfaces.HeadCallBack;
@@ -25,9 +27,10 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
 
     private Context mContext;
     private View view;
-    private RelativeLayout headRl;
+    private RelativeLayout headRlRight;
+    private LinearLayout headLl;
     private ImageView headImgLeft, headImgRight;
-    private TextView headTvTitle;
+    private TextView headTvTitle, headTvRight;
     private HeadCallBack headCallBack;
 
     public HeadView(Context context) {
@@ -46,18 +49,21 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
     private void initView(Context context) {
         mContext = context;
         view = LayoutInflater.from(mContext).inflate(R.layout.layout_head, this);
-        headRl = view.findViewById(R.id.head_rl);
+        headLl = view.findViewById(R.id.head_ll);
         headImgLeft = view.findViewById(R.id.head_img_left);
         headImgRight = view.findViewById(R.id.head_img_right);
         headTvTitle = view.findViewById(R.id.head_tv_title);
+        headTvRight = view.findViewById(R.id.head_tv_right);
+        headRlRight = view.findViewById(R.id.head_rl_right);
     }
 
     public void setData(@ColorRes int colorId, String titleText, boolean leftVisibiliy,
-                        @DrawableRes int leftImgId, boolean rightVisibiliy,
-                        @DrawableRes int rightImgId, HeadCallBack headCallBack) {
+                        @DrawableRes int leftImgId, boolean rightImgVisibiliy,
+                        @DrawableRes int rightImgId, boolean rightTvVisibiliy,
+                        @StringRes int rightTvId, HeadCallBack headCallBack) {
         this.headCallBack = headCallBack;
         if (colorId!=0){
-            headRl.setBackgroundColor(mContext.getResources().getColor(colorId));
+            headLl.setBackgroundColor(mContext.getResources().getColor(colorId));
         }
         if (leftVisibiliy) {
             headImgLeft.setVisibility(VISIBLE);
@@ -69,7 +75,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         }
         headImgLeft.setOnClickListener(this);
 
-        if (rightVisibiliy) {
+        if (rightImgVisibiliy) {
             headImgRight.setVisibility(VISIBLE);
         } else {
             headImgRight.setVisibility(INVISIBLE);
@@ -77,7 +83,16 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightImgId!=0){
             headImgRight.setBackgroundResource(rightImgId);
         }
-        headImgRight.setOnClickListener(this);
+        if (rightTvVisibiliy){
+            headTvRight.setVisibility(VISIBLE);
+        }else {
+            headTvRight.setVisibility(INVISIBLE);
+        }
+        if (rightTvId!=0){
+            headTvRight.setText(getResources().getString(rightTvId));
+        }
+
+        headRlRight.setOnClickListener(this);
 
         headTvTitle.setText(titleText);
     }
@@ -87,7 +102,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
     public void onClick(View v) {
         if (v.getId() == R.id.head_img_left) {
             headCallBack.onLeftClickLastListener();
-        }else if (v.getId() == R.id.head_img_right){
+        }else if (v.getId() == R.id.head_rl_right){
             headCallBack.onRightClickLastListener();
         }
     }
