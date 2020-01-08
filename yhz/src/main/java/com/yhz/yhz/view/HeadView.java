@@ -1,5 +1,6 @@
 package com.yhz.yhz.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         headRlRight = view.findViewById(R.id.head_rl_right);
     }
 
+    @SuppressLint("ResourceAsColor")
     public void setData(@ColorRes int colorId, String titleText, boolean leftVisibiliy,
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
