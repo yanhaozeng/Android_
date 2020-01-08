@@ -66,9 +66,9 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headLl.setBackgroundColor(mContext.getResources().getColor(colorId));
         }
         if (leftVisibiliy) {
-            headImgLeft.setVisibility(VISIBLE);
+            headImgLeft.setVisibility(View.VISIBLE);
         } else {
-            headImgLeft.setVisibility(INVISIBLE);
+            headImgLeft.setVisibility(View.INVISIBLE);
         }
         if (leftImgId!=0){
             headImgLeft.setBackgroundResource(leftImgId);
@@ -76,17 +76,17 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         headImgLeft.setOnClickListener(this);
 
         if (rightImgVisibiliy) {
-            headImgRight.setVisibility(VISIBLE);
+            headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(INVISIBLE);
+            headImgRight.setVisibility(View.INVISIBLE);
         }
         if (rightImgId!=0){
             headImgRight.setBackgroundResource(rightImgId);
         }
         if (rightTvVisibiliy){
-            headTvRight.setVisibility(VISIBLE);
+            headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(INVISIBLE);
+            headTvRight.setVisibility(View.INVISIBLE);
         }
         if (rightTvId!=0){
             headTvRight.setText(getResources().getString(rightTvId));
