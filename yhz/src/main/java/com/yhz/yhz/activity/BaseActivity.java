@@ -28,9 +28,6 @@ import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
 
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 /**
  * @description: BaseActivity (activity基本类)
  * @author: Y.hz
@@ -39,7 +36,6 @@ import butterknife.Unbinder;
 public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener{
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     private boolean isOpenKeyboardEvent = false;
-    private Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
-        unbinder = ButterKnife.bind(this);
         //设置布局
         setContentView(initLayout());
         // 初始化netEvent
@@ -100,7 +95,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         netEvent = null;
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
-        unbinder.unbind();
         super.onDestroy();
     }
 
