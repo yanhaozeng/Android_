@@ -35,10 +35,12 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
 
     public HeadView(Context context) {
         super(context);
+        initView(context);
     }
 
     public HeadView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView(context);
     }
 
     public HeadView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
