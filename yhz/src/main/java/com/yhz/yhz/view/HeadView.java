@@ -63,7 +63,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
         this.headCallBack = headCallBack;
         if (colorId!=0){
-            headLl.setBackgroundColor(mContext.getResources().getColor(colorId));
+            headLl.setBackgroundColor(colorId);
         }
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
@@ -89,7 +89,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headTvRight.setVisibility(View.INVISIBLE);
         }
         if (rightTvId!=0){
-            headTvRight.setText(getResources().getString(rightTvId));
+            headTvRight.setText(rightTvId);
         }
 
         headRlRight.setOnClickListener(this);
