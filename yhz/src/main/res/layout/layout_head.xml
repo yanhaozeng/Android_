@@ -45,7 +45,8 @@
             android:layout_margin="@dimen/dp_10"
             android:layout_height="match_parent"
             android:background="@drawable/abc_vector_test"
-            tools:ignore="PrivateResource" />
+            tools:ignore="PrivateResource"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/head_tv_right"
