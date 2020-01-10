@@ -16,7 +16,7 @@ public class FastJsonConverter implements Converter {
 
     @Override
     public <S, F> SimpleResponse<S, F> convert(Type succeed, Type failed, Response response, boolean fromCache) throws Exception {
-        S succeedData = JSON.parseObject(response.body().toString(),succeed);
+        S succeedData = JSON.parseObject(response.body().string(),succeed);
         return SimpleResponse.<S, F>newBuilder()
                 .code(response.code())
                 .headers(response.headers())
