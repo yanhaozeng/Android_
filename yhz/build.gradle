@@ -41,4 +41,5 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.1.71.android'
     //butterKnife
     implementation 'com.jakewharton:butterknife:10.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
