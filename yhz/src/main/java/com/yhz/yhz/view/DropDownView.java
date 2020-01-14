@@ -33,7 +33,7 @@ public class DropDownView extends TextView implements View.OnClickListener{
     private static final String TAG = "DropDownView";
     public static final String NUSELETED_SHOW_NAME = "请选择";
     String[] items_all;
-    List<String> items_key_list;
+    List<String>  items_key_list;
     List<String>  items_name_list;
     View nowClickView;
     public String getDefaultText() {
@@ -115,8 +115,7 @@ public class DropDownView extends TextView implements View.OnClickListener{
         }
         this.setOnClickListener(this);
 //        if (canSelect){
-//            this.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_keyboard_arrow_down_blue_grey_400_18dp,0);
-//        }
+//        this.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.ic_keyboard_arrow_down_blue_grey_400_18dp,0);}
         this.setBackgroundResource(R.drawable.shape_list);
         this.setSingleLine();
         /**
