@@ -49,8 +49,8 @@ public abstract class BaseFragmentActivity extends FragmentActivity implements N
 
         // 执行初始化方法
         initView();
-        initHttp();
         initData();
+        initHttp();
     }
 
     // 抽象 - 初始化控件

@@ -61,8 +61,8 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         // 初始化netEvent
         netEvent = this;
         initView();
-        initHttp();
         initData();
+        initHttp();
         initMethod();
     }
 

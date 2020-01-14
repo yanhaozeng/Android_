@@ -24,8 +24,8 @@ public abstract class BaseFragment extends Fragment implements NetBroadcastRecei
 
         // 初始化方法
         initView();
-        initHttp();
         initData();
+        initHttp();
     }
 
     @Override
