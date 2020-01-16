@@ -1,11 +1,13 @@
 package com.yhz.yhz.util;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
 
 import androidx.annotation.MenuRes;
+import androidx.annotation.RequiresApi;
 
 import com.yhz.yhz.interfaces.MenuInterface;
 
@@ -19,12 +21,14 @@ public class MenuUtils{
     private static PopupMenu popupMenu;
     private static MenuInterface mMenuInterface;
 
-    public static void showMenu(Context context, View view, @MenuRes int menuRes, MenuInterface menuInterface){
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public static void showMenu(Context context, View view,int gravity, @MenuRes int menuRes, MenuInterface menuInterface){
         mMenuInterface = menuInterface;
         // View当前PopupMenu显示的相对View的位置
         popupMenu = new PopupMenu(context, view);
         // menu布局
         popupMenu.getMenuInflater().inflate(menuRes, popupMenu.getMenu());
+        popupMenu.setGravity(gravity);
         // menu的item点击事件
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
