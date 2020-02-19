@@ -294,4 +294,5 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             mmLoading.dismiss();
         }
     }
+
 }
