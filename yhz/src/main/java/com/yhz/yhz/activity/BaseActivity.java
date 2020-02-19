@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.mumu.dialog.MMLoading;
 import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
@@ -36,6 +37,7 @@ import com.yhz.yhz.util.ConstantUtil;
 public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener{
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     private boolean isOpenKeyboardEvent = false;
+    private MMLoading mmLoading;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -249,5 +251,47 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                     || !(event.getY() > top) || !(event.getY() < bottom);
         }
         return false;
+    }
+
+    protected void showLoading() {
+        if (mmLoading == null) {
+            MMLoading.Builder builder = new MMLoading.Builder(this)
+                    .setMessage("加载中...")
+                    .setCancelable(false)
+                    .setCancelOutside(false);
+            mmLoading = builder.create();
+        }else {
+            mmLoading.dismiss();
+            MMLoading.Builder builder = new MMLoading.Builder(this)
+                    .setMessage("加载中...")
+                    .setCancelable(false)
+                    .setCancelOutside(false);
+            mmLoading = builder.create();
+        }
+        mmLoading.show();
+    }
+
+    protected void showLoading(String msg) {
+        if (mmLoading == null) {
+            MMLoading.Builder builder = new MMLoading.Builder(this)
+                    .setMessage(msg)
+                    .setCancelable(false)
+                    .setCancelOutside(false);
+            mmLoading = builder.create();
+        }else {
+            mmLoading.dismiss();
+            MMLoading.Builder builder = new MMLoading.Builder(this)
+                    .setMessage(msg)
+                    .setCancelable(false)
+                    .setCancelOutside(false);
+            mmLoading = builder.create();
+        }
+        mmLoading.show();
+    }
+
+    protected void hideLoading() {
+        if (mmLoading != null && mmLoading.isShowing()) {
+            mmLoading.dismiss();
+        }
     }
 }

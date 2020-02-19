@@ -42,4 +42,5 @@ dependencies {
     //butterKnife
     implementation 'com.jakewharton:butterknife:10.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.github.mamumu:mmDialog:1.2.0'
 }
