@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.mumu.dialog.MMLoading;
+import com.yhz.yhz.R;
 import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
@@ -49,7 +50,8 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             // 透明状态栏
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             // 透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
         }else {
             // 隐藏标题栏
             if (getSupportActionBar() != null)
