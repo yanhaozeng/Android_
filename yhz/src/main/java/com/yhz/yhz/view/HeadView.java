@@ -99,6 +99,46 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         headTvTitle.setText(titleText);
     }
 
+    public void setDataImg(@DrawableRes int drawableId, String titleText, boolean leftVisibiliy,
+                        @DrawableRes int leftImgId, boolean rightImgVisibiliy,
+                        @DrawableRes int rightImgId, boolean rightTvVisibiliy,
+                        @StringRes int rightTvId, HeadCallBack headCallBack) {
+        this.headCallBack = headCallBack;
+        if (drawableId!=0){
+            headLl.setBackground(getResources().getDrawable(drawableId));
+        }
+        if (leftVisibiliy) {
+            headImgLeft.setVisibility(View.VISIBLE);
+        } else {
+            headImgLeft.setVisibility(View.INVISIBLE);
+        }
+        if (leftImgId!=0){
+            headImgLeft.setBackgroundResource(leftImgId);
+        }
+        headImgLeft.setOnClickListener(this);
+
+        if (rightImgVisibiliy) {
+            headImgRight.setVisibility(View.VISIBLE);
+        } else {
+            headImgRight.setVisibility(View.INVISIBLE);
+        }
+        if (rightImgId!=0){
+            headImgRight.setBackgroundResource(rightImgId);
+        }
+        if (rightTvVisibiliy){
+            headTvRight.setVisibility(View.VISIBLE);
+        }else {
+            headTvRight.setVisibility(View.INVISIBLE);
+        }
+        if (rightTvId!=0){
+            headTvRight.setText(rightTvId);
+        }
+
+        headRlRight.setOnClickListener(this);
+
+        headTvTitle.setText(titleText);
+    }
+
 
     @Override
     public void onClick(View v) {
