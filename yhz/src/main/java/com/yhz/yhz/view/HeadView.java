@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
+import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -59,7 +60,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         headRlRight = view.findViewById(R.id.head_rl_right);
     }
 
-    public void setData(@ColorRes int colorId, String titleText, boolean leftVisibiliy,
+    public void setData(int height, @DimenRes int dimenId, @ColorRes int colorId, String titleText, boolean leftVisibiliy,
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
@@ -67,6 +68,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (colorId!=0){
             headLl.setBackgroundColor(getResources().getColor(colorId));
         }
+
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
         } else {
@@ -95,11 +97,19 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         }
 
         headRlRight.setOnClickListener(this);
+        if (height!=0){
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) headLl.getLayoutParams();
+            layoutParams.height = height;
+            headLl.setLayoutParams(layoutParams);
+        }
+        if (dimenId!=0){
+            headTvTitle.setTextSize(getResources().getDimension(dimenId));
+        }
 
         headTvTitle.setText(titleText);
     }
 
-    public void setDataImg(@DrawableRes int drawableId, String titleText, boolean leftVisibiliy,
+    public void setDataImg(int height, @DimenRes int dimenId,@DrawableRes int drawableId, String titleText, boolean leftVisibiliy,
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
@@ -135,7 +145,14 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         }
 
         headRlRight.setOnClickListener(this);
-
+        if (height!=0){
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) headLl.getLayoutParams();
+            layoutParams.height = height;
+            headLl.setLayoutParams(layoutParams);
+        }
+        if (dimenId!=0){
+            headTvTitle.setTextSize(getResources().getDimension(dimenId));
+        }
         headTvTitle.setText(titleText);
     }
 
