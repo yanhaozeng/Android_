@@ -75,7 +75,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgLeft.setVisibility(View.INVISIBLE);
         }
         if (leftImgId!=0){
-            headImgLeft.setBackgroundResource(leftImgId);
+            headImgLeft.setImageResource(leftImgId);
         }
         headImgLeft.setOnClickListener(this);
 
@@ -85,7 +85,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgRight.setVisibility(View.INVISIBLE);
         }
         if (rightImgId!=0){
-            headImgRight.setBackgroundResource(rightImgId);
+            headImgRight.setImageResource(rightImgId);
         }
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
@@ -116,7 +116,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgLeft.setVisibility(View.INVISIBLE);
         }
         if (leftImgId!=0){
-            headImgLeft.setBackgroundResource(leftImgId);
+            headImgLeft.setImageResource(leftImgId);
         }
         headImgLeft.setOnClickListener(this);
 
@@ -126,7 +126,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgRight.setVisibility(View.INVISIBLE);
         }
         if (rightImgId!=0){
-            headImgRight.setBackgroundResource(rightImgId);
+            headImgRight.setImageResource(rightImgId);
         }
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
@@ -164,7 +164,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgLeft.setVisibility(View.INVISIBLE);
         }
         if (leftImgId!=0){
-            headImgLeft.setBackgroundResource(leftImgId);
+            headImgLeft.setImageResource(leftImgId);
         }
         headImgLeft.setOnClickListener(this);
 
@@ -174,7 +174,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgRight.setVisibility(View.INVISIBLE);
         }
         if (rightImgId!=0){
-            headImgRight.setBackgroundResource(rightImgId);
+            headImgRight.setImageResource(rightImgId);
         }
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
@@ -204,7 +204,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgLeft.setVisibility(View.INVISIBLE);
         }
         if (leftImgId!=0){
-            headImgLeft.setBackgroundResource(leftImgId);
+            headImgLeft.setImageResource(leftImgId);
         }
         headImgLeft.setOnClickListener(this);
 
@@ -214,7 +214,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
             headImgRight.setVisibility(View.INVISIBLE);
         }
         if (rightImgId!=0){
-            headImgRight.setBackgroundResource(rightImgId);
+            headImgRight.setImageResource(rightImgId);
         }
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);

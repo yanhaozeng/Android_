@@ -44,7 +44,7 @@
             android:layout_width="@dimen/dp_50"
             android:layout_margin="@dimen/dp_10"
             android:layout_height="match_parent"
-            android:background="@drawable/abc_vector_test"
+            android:src="@drawable/abc_vector_test"
             tools:ignore="PrivateResource"
             android:visibility="gone"/>
 
