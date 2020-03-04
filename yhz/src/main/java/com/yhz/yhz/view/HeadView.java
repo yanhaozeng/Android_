@@ -139,7 +139,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
 
         headRlRight.setOnClickListener(this);
         if (height!=0){
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) headLl.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (LayoutParams) headLl.getLayoutParams();
             layoutParams.height = height;
             headLl.setLayoutParams(layoutParams);
         }
@@ -227,7 +227,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
 
         headRlRight.setOnClickListener(this);
         if (height!=0){
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) headLl.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (LayoutParams) headLl.getLayoutParams();
             layoutParams.height = height;
             headLl.setLayoutParams(layoutParams);
         }
