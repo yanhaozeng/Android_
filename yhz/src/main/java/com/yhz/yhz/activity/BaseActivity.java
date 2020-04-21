@@ -98,6 +98,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         netEvent = null;
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
+        hideLoading();
         super.onDestroy();
     }
 
