@@ -257,14 +257,14 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     protected void showLoading() {
         if (mmLoading == null) {
-            MMLoading.Builder builder = new MMLoading.Builder(getApplicationContext())
+            MMLoading.Builder builder = new MMLoading.Builder(this)
                     .setMessage("加载中...")
                     .setCancelable(false)
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }else {
             mmLoading.dismiss();
-            MMLoading.Builder builder = new MMLoading.Builder(getApplicationContext())
+            MMLoading.Builder builder = new MMLoading.Builder(this)
                     .setMessage("加载中...")
                     .setCancelable(false)
                     .setCancelOutside(false);
@@ -275,14 +275,14 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     protected void showLoading(String msg) {
         if (mmLoading == null) {
-            MMLoading.Builder builder = new MMLoading.Builder(getApplicationContext())
+            MMLoading.Builder builder = new MMLoading.Builder(this)
                     .setMessage(msg)
                     .setCancelable(false)
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }else {
             mmLoading.dismiss();
-            MMLoading.Builder builder = new MMLoading.Builder(getApplicationContext())
+            MMLoading.Builder builder = new MMLoading.Builder(this)
                     .setMessage(msg)
                     .setCancelable(false)
                     .setCancelOutside(false);
