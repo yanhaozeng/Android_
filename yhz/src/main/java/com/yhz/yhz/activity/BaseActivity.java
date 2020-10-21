@@ -34,7 +34,7 @@ import com.yhz.yhz.util.ConstantUtil;
  * @author: Y.hz
  * @time: 2019/12/02 11:29
  */
-public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener{
+public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener {
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     private boolean isOpenKeyboardEvent = false;
     private MMLoading mmLoading;
@@ -45,13 +45,17 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         // 执行初始化方法
         isOpenKeyboardEvent = initIsOpenKeyboardEvent();
         // 沉浸效果
-        // 透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //设置状态栏颜色
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        // 透明导航栏
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // 透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // 透明导航栏
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //            getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
+        } else {
+            // 隐藏标题栏
+            if (getSupportActionBar() != null)
+                getSupportActionBar().hide();
+        }
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
@@ -67,14 +71,19 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     // 抽象 - 初始化方法，可以对数据进行初始化
     protected abstract boolean initIsOpenKeyboardEvent();
+
     // 抽象 - 初始化布局
     protected abstract int initLayout();
+
     // 抽象 - 初始化控件
     protected abstract void initView();
+
     // 抽象 - 初始化网络请求
     protected abstract void initHttp();
+
     // 抽象 - 初始化数据
     protected abstract void initData();
+
     // 抽象 - 初始化方法
     protected abstract void initMethod();
 
@@ -86,6 +95,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         configuration.fontScale = ConstantUtil.TEXTVIEWSIZE;
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
+
 
     @Override
     protected void onDestroy() {
@@ -209,7 +219,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             display.getRealSize(realSize);
             return realSize.y != size.y;
         } else {
-            boolean menu = ViewConfiguration.get(this).hasPermanentMenuKey();
+            boolean menu = ViewConfiguration.get(getApplicationContext()).hasPermanentMenuKey();
             boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
             return !menu && !back;
         }
@@ -252,47 +262,57 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     }
 
     protected void showLoading() {
-        if (mmLoading == null) {
-            MMLoading.Builder builder = new MMLoading.Builder(this)
-                    .setMessage("加载中...")
-                    .setCancelable(false)
-                    .setCancelOutside(false);
-            mmLoading = builder.create();
-        }else {
-            mmLoading.dismiss();
-            MMLoading.Builder builder = new MMLoading.Builder(this)
-                    .setMessage("加载中...")
-                    .setCancelable(false)
-                    .setCancelOutside(false);
-            mmLoading = builder.create();
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            if (mmLoading == null) {
+                MMLoading.Builder builder = new MMLoading.Builder(this)
+                        .setMessage("加载中...")
+                        .setCancelable(false)
+                        .setCancelOutside(false);
+                mmLoading = builder.create();
+            } else {
+                mmLoading.dismiss();
+                MMLoading.Builder builder = new MMLoading.Builder(this)
+                        .setMessage("加载中...")
+                        .setCancelable(false)
+                        .setCancelOutside(false);
+                mmLoading = builder.create();
+            }
+
+
+            mmLoading.show();
         }
-        mmLoading.show();
     }
 
     protected void showLoading(String msg) {
-        if (mmLoading == null) {
-            MMLoading.Builder builder = new MMLoading.Builder(this)
-                    .setMessage(msg)
-                    .setCancelable(false)
-                    .setCancelOutside(false);
-            mmLoading = builder.create();
-        }else {
-            mmLoading.dismiss();
-            MMLoading.Builder builder = new MMLoading.Builder(this)
-                    .setMessage(msg)
-                    .setCancelable(false)
-                    .setCancelOutside(false);
-            mmLoading = builder.create();
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            if (mmLoading == null) {
+                MMLoading.Builder builder = new MMLoading.Builder(this)
+                        .setMessage(msg)
+                        .setCancelable(false)
+                        .setCancelOutside(false);
+                mmLoading = builder.create();
+            } else {
+                mmLoading.dismiss();
+                MMLoading.Builder builder = new MMLoading.Builder(this)
+                        .setMessage(msg)
+                        .setCancelable(false)
+                        .setCancelOutside(false);
+                mmLoading = builder.create();
+            }
+
+            mmLoading.show();
         }
-        mmLoading.show();
     }
 
     protected void hideLoading() {
-        if (mmLoading != null && mmLoading.isShowing()) {
-            mmLoading.dismiss();
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            if (mmLoading != null && mmLoading.isShowing()) {
+                mmLoading.dismiss();
+            }
         }
     }
-
-
 
 }
