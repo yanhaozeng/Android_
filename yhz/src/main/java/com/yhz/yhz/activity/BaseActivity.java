@@ -45,17 +45,13 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         // 执行初始化方法
         isOpenKeyboardEvent = initIsOpenKeyboardEvent();
         // 沉浸效果
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 透明导航栏
+        // 透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //设置状态栏颜色
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        // 透明导航栏
 //            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 //            getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
-        }else {
-            // 隐藏标题栏
-            if (getSupportActionBar() != null)
-                getSupportActionBar().hide();
-        }
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
@@ -90,7 +86,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         configuration.fontScale = ConstantUtil.TEXTVIEWSIZE;
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
-
 
     @Override
     protected void onDestroy() {
@@ -214,7 +209,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             display.getRealSize(realSize);
             return realSize.y != size.y;
         } else {
-            boolean menu = ViewConfiguration.get(getApplicationContext()).hasPermanentMenuKey();
+            boolean menu = ViewConfiguration.get(this).hasPermanentMenuKey();
             boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
             return !menu && !back;
         }
@@ -271,11 +266,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }
-
-        if (!this.isFinishing())//xActivity即为本界面的Activity
-        {
-            mmLoading.show();
-        }
+        mmLoading.show();
     }
 
     protected void showLoading(String msg) {
@@ -293,19 +284,15 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }
-        if (!this.isFinishing())//xActivity即为本界面的Activity
-        {
-            mmLoading.show();
-        }
+        mmLoading.show();
     }
 
     protected void hideLoading() {
-        if (!this.isFinishing())//xActivity即为本界面的Activity
-        {
-            if (mmLoading != null && mmLoading.isShowing()) {
-                mmLoading.dismiss();
-            }
+        if (mmLoading != null && mmLoading.isShowing()) {
+            mmLoading.dismiss();
         }
     }
+
+
 
 }
