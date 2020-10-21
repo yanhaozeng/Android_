@@ -84,6 +84,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     @Override
     protected void onResume() {
+        super.onResume();
         Resources resources = this.getResources();
         Configuration configuration = resources.getConfiguration();
         configuration.fontScale = ConstantUtil.TEXTVIEWSIZE;
@@ -99,6 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
         hideLoading();
+        super.onDestroy();
     }
 
     @Override
