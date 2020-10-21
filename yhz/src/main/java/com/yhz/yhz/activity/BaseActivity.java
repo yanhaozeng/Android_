@@ -84,12 +84,12 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 
     @Override
     protected void onResume() {
-        super.onResume();
         Resources resources = this.getResources();
         Configuration configuration = resources.getConfiguration();
         configuration.fontScale = ConstantUtil.TEXTVIEWSIZE;
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
+
 
     @Override
     protected void onDestroy() {
@@ -99,7 +99,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
         hideLoading();
-        super.onDestroy();
     }
 
     @Override
@@ -213,7 +212,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             display.getRealSize(realSize);
             return realSize.y != size.y;
         } else {
-            boolean menu = ViewConfiguration.get(this).hasPermanentMenuKey();
+            boolean menu = ViewConfiguration.get(getApplicationContext()).hasPermanentMenuKey();
             boolean back = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
             return !menu && !back;
         }
@@ -270,7 +269,11 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }
-        mmLoading.show();
+
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            mmLoading.show();
+        }
     }
 
     protected void showLoading(String msg) {
@@ -288,7 +291,10 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                     .setCancelOutside(false);
             mmLoading = builder.create();
         }
-        mmLoading.show();
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            mmLoading.show();
+        }
     }
 
     protected void hideLoading() {
