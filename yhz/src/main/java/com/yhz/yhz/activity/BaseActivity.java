@@ -300,8 +300,11 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     }
 
     protected void hideLoading() {
-        if (mmLoading != null && mmLoading.isShowing()) {
-            mmLoading.dismiss();
+        if (!this.isFinishing())//xActivity即为本界面的Activity
+        {
+            if (mmLoading != null && mmLoading.isShowing()) {
+                mmLoading.dismiss();
+            }
         }
     }
 
