@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.mumu.dialog.MMLoading;
 import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
@@ -37,7 +36,7 @@ import com.yhz.yhz.util.ConstantUtil;
 public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener {
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     private boolean isOpenKeyboardEvent = false;
-    private MMLoading mmLoading;
+//    private MMLoading mmLoading;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         netEvent = null;
         // 移除Activity
         ActivityUtil.getInstance().removeActivity(this);
-        hideLoading();
+//        hideLoading();
         super.onDestroy();
     }
 
@@ -261,7 +260,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         return false;
     }
 
-    protected void showLoading() {
+    /*protected void showLoading() {
         if (!this.isFinishing())//xActivity即为本界面的Activity
         {
             if (mmLoading == null) {
@@ -313,6 +312,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
                 mmLoading.dismiss();
             }
         }
-    }
+    }*/
 
 }
