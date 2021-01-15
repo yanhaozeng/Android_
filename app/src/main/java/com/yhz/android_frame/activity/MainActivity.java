@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.yhz.android_frame.R;
 import com.yhz.yhz.activity.BaseActivity;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
@@ -86,11 +87,34 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int initLayout() {
-        return 0;
+        return R.layout.activity_guide;
     }
 
     @Override
     protected void initView() {
+        findViewById(R.id.hold_id);
+        findViewById(R.id.hold_selected_state);
+        findViewById(R.id.hold_userid);
+        findViewById(R.id.honorRequest);
+        findViewById(R.id.id_iv);
+        findViewById(R.id.id_ll_item);
+        findViewById(R.id.id_rv);
+        findViewById(R.id.id_tv);
+        findViewById(R.id.ignore);
+        findViewById(R.id.ignoreRequest);
+        findViewById(R.id.invisible);
+        findViewById(R.id.itemMain_tv);
+        findViewById(R.id.jumpToEnd);
+        findViewById(R.id.jumpToStart);
+        findViewById(R.id.layout);
+        findViewById(R.id.left);
+        findViewById(R.id.linear);
+        findViewById(R.id.middle);
+        findViewById(R.id.motion_base);
+        findViewById(R.id.NO_DEBUG);
+        findViewById(R.id.packed);
+        findViewById(R.id.parent);
+        findViewById(R.id.parentRelative);
 
     }
 
