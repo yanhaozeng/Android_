@@ -99,12 +99,10 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         InputMethodManager imm= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        // TODO Auto-generated method stub
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            System.out.println("down");
-            if (this.getCurrentFocus() != null) {
-                if (this.getCurrentFocus().getWindowToken() != null) {
-                    imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(),
+            if (getCurrentFocus() != null) {
+                if (getCurrentFocus().getWindowToken() != null) {
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                             InputMethodManager.HIDE_NOT_ALWAYS);
                 }
             }
