@@ -76,7 +76,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     protected abstract boolean initIsOpenKeyboardEvent();
 
     // 抽象 - 初始化布局
-    protected abstract View initLayout();
+    protected abstract int initLayout();
 
     // 抽象 - 初始化控件
     protected abstract void initView();
