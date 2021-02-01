@@ -38,4 +38,5 @@ CrashHandler.getLOG_DIR();
 ##### 新增HeadView(公共头部控件) 新增HeadSearchView（头部搜索控件）使用方式与GuideView一直 使用setData方法（参数看源码）
 ##### 新增ToastAlone工具类
 ##### 国际化支持
+##### 1.4.5版本后 BaseActivity中initLayout方法返回值调整为view 后续版本因Gradle5之后butterknife将无法正常使用取消butterknife的使用转战viewBinding
 
