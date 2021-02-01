@@ -14,7 +14,8 @@ import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
  * @time: 2019/12/02 14:26
  */
 public abstract class BaseFragment extends Fragment implements NetBroadcastReceiver.NetChangeListener {
-    public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
+    // 网络状态改变监听事件
+    public static NetBroadcastReceiver.NetChangeListener netEvent;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.hjq.language.MultiLanguages;
 import com.yhz.yhz.broadcastReceiver.NetBroadcastReceiver;
 import com.yhz.yhz.util.ActivityUtil;
 import com.yhz.yhz.util.ConstantUtil;
@@ -35,7 +36,8 @@ import com.yhz.yhz.util.ConstantUtil;
  * @time: 2019/12/02 11:29
  */
 public abstract class BaseActivity extends AppCompatActivity implements NetBroadcastReceiver.NetChangeListener {
-    public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
+    // 网络状态改变监听事件
+    public static NetBroadcastReceiver.NetChangeListener netEvent;
     private boolean isOpenKeyboardEvent = false;
 //    private MMLoading mmLoading;
 
@@ -53,8 +55,9 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
 //            getWindow().setNavigationBarColor(getResources().getColor(R.color.white));
         } else {
             // 隐藏标题栏
-            if (getSupportActionBar() != null)
+            if (getSupportActionBar() != null){
                 getSupportActionBar().hide();
+            }
         }
 
         // 添加到Activity工具类
@@ -123,7 +126,8 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
         {  //判断得到的焦点控件是否包含EditText
             int[] l = {0, 0};
             v.getLocationInWindow(l);
-            int left = l[0],    //得到输入框在屏幕中上下左右的位置
+            //得到输入框在屏幕中上下左右的位置
+            int left = l[0],
                     top = l[1],
                     bottom = top + v.getHeight(),
                     right = left + v.getWidth();
@@ -254,8 +258,9 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     public int getStatusBarHeight() {
         Resources resources = getResources();
         int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0)
+        if (resourceId > 0){
             return resources.getDimensionPixelSize(resourceId);
+        }
         return 0;
     }
 
@@ -263,8 +268,9 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
     public int getNavigationBarHeight() {
         Resources resources = getResources();
         int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
-        if (resourceId > 0)
+        if (resourceId > 0){
             return resources.getDimensionPixelSize(resourceId);
+        }
         return 0;
     }
 
@@ -341,6 +347,11 @@ public abstract class BaseActivity extends AppCompatActivity implements NetBroad
             }
         }
         return false;
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguages.attach(newBase));
     }
 
     /*protected void showLoading() {
