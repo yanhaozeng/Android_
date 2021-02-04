@@ -2,8 +2,10 @@ package com.yhz.yhz.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -137,5 +139,24 @@ public class PhoneUtils {
             e.printStackTrace();
         }
         return code;
+    }
+
+    /**
+     * 拨打电话(直接拨打:true;拨号页面：false)
+     * */
+    @SuppressLint("MissingPermission")
+    public static void goDialPhone(Context context, String phoneNum , boolean is){
+        if (is){
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            Uri data = Uri.parse("tel:" + phoneNum);
+            intent.setData(data);
+            context.startActivity(intent);
+        }else {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            Uri data = Uri.parse("tel:" + phoneNum);
+            intent.setData(data);
+            context.startActivity(intent);
+        }
+
     }
 }
