@@ -156,7 +156,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         }
 
         long currentTimeMillis = System.currentTimeMillis();
-        String format = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss").format(currentTimeMillis);
+        String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(currentTimeMillis);
         logTxt = new File(LOG_DIR + format + ".txt");
 
         try {
