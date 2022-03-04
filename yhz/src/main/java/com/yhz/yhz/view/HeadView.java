@@ -72,7 +72,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
@@ -82,7 +82,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -90,7 +90,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
@@ -113,7 +113,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
@@ -123,7 +123,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -131,7 +131,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
@@ -161,7 +161,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
@@ -171,7 +171,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -179,7 +179,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
@@ -201,7 +201,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
@@ -211,7 +211,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -219,7 +219,7 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
