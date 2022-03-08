@@ -2,11 +2,15 @@ package com.yhz.yhz.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import java.util.Locale;
-
-import static android.content.Context.TELEPHONY_SERVICE;
 
 /**
  * @description: PhoneUtils (手机信息工具类)
@@ -81,13 +85,78 @@ public class PhoneUtils {
      *
      * @return 手机IMEI
      */
+    @SuppressLint("MissingPermission")
     public static String getIMEI(Context context) {
-        TelephonyManager tm = (TelephonyManager) context
-                .getSystemService(TELEPHONY_SERVICE); // 提供了一系列用于访问与手机通讯相关的状态和信息的get方法
-        @SuppressLint("MissingPermission")
-        String imei = tm.getDeviceId();// 返回移动终端的软件版本，例如：GSM手机的IMEI/SV码。
-        imei = imei == null ? "" : imei;
-        return imei;
+        String deviceId = null;
+        try {
+            TelephonyManager tm = (TelephonyManager) context
+                    .getSystemService(Context.TELEPHONY_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                deviceId = Settings.System.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+            } else {
+                deviceId = tm.getDeviceId();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return deviceId;
+
+    }
+
+    /**
+     * 获取应用版本名称
+     *
+     * */
+    public static String getAppVersionName(Context context){
+        PackageManager manager = context.getPackageManager();
+        String name = null;
+        try {
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+            name = info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+
+    /**
+     * 获取应用版本号
+     * */
+    public static long getAppVersionCode(Context context){
+        PackageManager manager = context.getPackageManager();
+        long code = 0;
+        try {
+            PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                code = info.getLongVersionCode();
+            } else {
+                code = info.versionCode;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return code;
+    }
+
+    /**
+     * 拨打电话(直接拨打:true;拨号页面：false)
+     * */
+    @SuppressLint("MissingPermission")
+    public static void goDialPhone(Context context, String phoneNum , boolean is){
+        if (is){
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            Uri data = Uri.parse("tel:" + phoneNum);
+            intent.setData(data);
+            context.startActivity(intent);
+        }else {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            Uri data = Uri.parse("tel:" + phoneNum);
+            intent.setData(data);
+            context.startActivity(intent);
+        }
 
     }
 }

@@ -4,6 +4,12 @@
     <string name="skip">跳过</string>
     <string name="head_search">请输入搜索内容</string>
     <string name="head_search_btn">搜索</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
 
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_1">1dp</dimen>

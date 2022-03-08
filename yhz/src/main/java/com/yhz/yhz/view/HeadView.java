@@ -64,25 +64,27 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
-        this.headCallBack = headCallBack;
+        if (headCallBack != null){
+            this.headCallBack = headCallBack;
+        }
         if (colorId!=0){
             headLl.setBackgroundColor(getResources().getColor(colorId));
         }
 
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
+            headImgLeft.setOnClickListener(this);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
         }
-        headImgLeft.setOnClickListener(this);
 
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -90,13 +92,17 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
         }
-
-        headRlRight.setOnClickListener(this);
+        if (!rightImgVisibiliy && !rightTvVisibiliy){
+            headRlRight.setVisibility(GONE);
+        }else {
+            headRlRight.setVisibility(VISIBLE);
+            headRlRight.setOnClickListener(this);
+        }
 
         headTvTitle.setText(titleText);
     }
@@ -105,25 +111,26 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
-        this.headCallBack = headCallBack;
+        if (headCallBack != null){
+            this.headCallBack = headCallBack;
+        }
         if (colorId!=0){
             headLl.setBackgroundColor(getResources().getColor(colorId));
         }
 
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
+            headImgLeft.setOnClickListener(this);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
         }
-        headImgLeft.setOnClickListener(this);
-
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -131,13 +138,17 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
         }
-
-        headRlRight.setOnClickListener(this);
+        if (!rightImgVisibiliy && !rightTvVisibiliy){
+            headRlRight.setVisibility(GONE);
+        }else {
+            headRlRight.setVisibility(VISIBLE);
+            headRlRight.setOnClickListener(this);
+        }
         if (height!=0){
             FrameLayout.LayoutParams layoutParams = (LayoutParams) headLl.getLayoutParams();
             layoutParams.height = height;
@@ -154,24 +165,26 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
                            @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                            @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                            @StringRes int rightTvId, HeadCallBack headCallBack) {
-        this.headCallBack = headCallBack;
+        if (headCallBack != null){
+            this.headCallBack = headCallBack;
+        }
         if (drawableId!=0){
             headLl.setBackground(getResources().getDrawable(drawableId));
         }
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
+            headImgLeft.setOnClickListener(this);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
         }
-        headImgLeft.setOnClickListener(this);
 
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -179,13 +192,18 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
         }
 
-        headRlRight.setOnClickListener(this);
+        if (!rightImgVisibiliy && !rightTvVisibiliy){
+            headRlRight.setVisibility(GONE);
+        }else {
+            headRlRight.setVisibility(VISIBLE);
+            headRlRight.setOnClickListener(this);
+        }
 
         headTvTitle.setText(titleText);
     }
@@ -194,24 +212,26 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
                         @DrawableRes int leftImgId, boolean rightImgVisibiliy,
                         @DrawableRes int rightImgId, boolean rightTvVisibiliy,
                         @StringRes int rightTvId, HeadCallBack headCallBack) {
-        this.headCallBack = headCallBack;
+        if (headCallBack != null){
+            this.headCallBack = headCallBack;
+        }
         if (drawableId!=0){
             headLl.setBackground(getResources().getDrawable(drawableId));
         }
         if (leftVisibiliy) {
             headImgLeft.setVisibility(View.VISIBLE);
+            headImgLeft.setOnClickListener(this);
         } else {
-            headImgLeft.setVisibility(View.INVISIBLE);
+            headImgLeft.setVisibility(View.GONE);
         }
         if (leftImgId!=0){
             headImgLeft.setImageResource(leftImgId);
         }
-        headImgLeft.setOnClickListener(this);
 
         if (rightImgVisibiliy) {
             headImgRight.setVisibility(View.VISIBLE);
         } else {
-            headImgRight.setVisibility(View.INVISIBLE);
+            headImgRight.setVisibility(View.GONE);
         }
         if (rightImgId!=0){
             headImgRight.setImageResource(rightImgId);
@@ -219,13 +239,18 @@ public class HeadView extends FrameLayout implements View.OnClickListener {
         if (rightTvVisibiliy){
             headTvRight.setVisibility(View.VISIBLE);
         }else {
-            headTvRight.setVisibility(View.INVISIBLE);
+            headTvRight.setVisibility(View.GONE);
         }
         if (rightTvId!=0){
             headTvRight.setText(rightTvId);
         }
 
-        headRlRight.setOnClickListener(this);
+        if (!rightImgVisibiliy && !rightTvVisibiliy){
+            headRlRight.setVisibility(GONE);
+        }else {
+            headRlRight.setVisibility(VISIBLE);
+            headRlRight.setOnClickListener(this);
+        }
         if (height!=0){
             FrameLayout.LayoutParams layoutParams = (LayoutParams) headLl.getLayoutParams();
             layoutParams.height = height;

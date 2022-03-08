@@ -1,5 +1,7 @@
 package com.yhz.android_frame.activity;
 
+import android.view.View;
+
 import com.yhz.android_frame.R;
 import com.yhz.yhz.activity.BaseActivity;
 import com.yhz.yhz.interfaces.GuideCallBack;
@@ -31,8 +33,8 @@ public class GuideActivity extends BaseActivity implements GuideCallBack {
     }
 
     @Override
-    protected int initLayout() {
-        return R.layout.activity_guide;
+    protected View initLayout() {
+        return null;
     }
 
     @Override

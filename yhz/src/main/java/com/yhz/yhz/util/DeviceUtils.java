@@ -1,8 +1,11 @@
 package com.yhz.yhz.util;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import java.io.File;
 
@@ -52,6 +55,22 @@ public class DeviceUtils {
     @SuppressLint("HardwareIds")
     public static String getAndroidID(Context context) {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
+
+    //获取屏幕的宽度
+    public static int getScrnWidth(Activity activity) {
+        WindowManager manager = activity.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        manager.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
+
+    }
+    //获取屏幕的高度
+    public static int getScrnHeight(Activity activity) {
+        WindowManager manager = activity.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        manager.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.heightPixels;
     }
 
 
